@@ -163,6 +163,6 @@ python -m src.cli --case conflict --trace examples/run_conflict.jsonl
 
 - 题号：**1（素材审核与发布排期 Agent）**
 - 仓库：https://github.com/dachengjinresearch-crypto/xiaoying-agent-exam
-- commit SHA：d4d7c0de1278dd66c9cafb47205e51207fd27f47
+- commit SHA：068347f7e7cf4b6ce7e8be8452fa4fa29d217af4
 
 > 私有仓库请将评审账号加入可读名单。
