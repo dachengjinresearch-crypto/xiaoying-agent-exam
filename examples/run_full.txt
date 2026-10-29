@@ -1,0 +1,31 @@
+# 用例：full
+# 说明：全量批处理：七个素材一次跑完，覆盖全部必须验收点。
+# 命令：python -m src.cli --case full --offline --trace examples/run_full.jsonl --audit examples/audit.jsonl
+# 退出码：0
+
+[stderr]
+[NOTICE] 显式指定 --offline：使用离线 Mock
+[NOTICE] trace 写入 examples/run_full.jsonl
+[NOTICE] 审计追加到 examples/audit.jsonl
+
+[stdout]
+run_id       : run-full
+case         : full
+model        : offline (degraded=false)
+status       : partial
+budget       : steps 33/80, tools 26/60
+
+asset review      status      draft_id  requested           suggested           confirm
+--------------------------------------------------------------------------------------------
+M01   passed      草稿已保存       D-001     2026-11-05T18:00    2026-11-05T19:00    待确认
+M02   passed      草稿已保存       D-002     2026-11-05T20:00    2026-11-05T20:00    -
+M03   needs_info  待补资料        -         2026-11-06T10:00    -                   -
+M04   blocked     已阻断         -         2026-11-06T12:00    -                   -
+M05   passed      保存失败        -         2026-11-06T15:00    -                   -
+M06   passed      草稿已保存       D-003     2026-11-06T16:00    2026-11-06T16:00    -
+M07   passed      草稿已保存       D-004     2026-11-06T17:00    2026-11-06T17:00    -
+
+  待确认   M01: 2026-11-05T18:00 已被占用，建议调整为 2026-11-05T19:00
+  风险     M04: R2: 命中未核实内容特征：contains_unverified_effect_claim
+
+summary      : total=7 已保存草稿=4 阻断=1 待补资料=1 保存失败=1 待确认=1

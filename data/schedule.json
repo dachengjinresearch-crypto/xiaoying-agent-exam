@@ -1,0 +1,19 @@
+{
+  "version": "2026-10-29",
+  "channels": {
+    "douyin": {
+      "2026-11-05": {
+        "18:00": { "asset_id": "M00", "status": "occupied" },
+        "19:00": { "asset_id": null, "status": "free" },
+        "20:00": { "asset_id": null, "status": "free" }
+      },
+      "2026-11-06": {
+        "10:00": { "asset_id": null, "status": "free" },
+        "12:00": { "asset_id": null, "status": "free" },
+        "15:00": { "asset_id": null, "status": "free" },
+        "16:00": { "asset_id": null, "status": "free" },
+        "17:00": { "asset_id": null, "status": "free" }
+      }
+    }
+  }
+}

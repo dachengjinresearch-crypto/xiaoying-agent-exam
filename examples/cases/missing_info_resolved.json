@@ -1,0 +1,10 @@
+{
+  "case": "missing_info_resolved",
+  "description": "信息缺失但可补齐：M07 初始缺字段，asset_extra 中有补充记录，补查后完整并成功排期。",
+  "only": ["M07"],
+  "repeat": false,
+  "expected": {
+    "review_status": "passed",
+    "draft_status": "draft_saved"
+  }
+}

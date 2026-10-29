@@ -1,0 +1,11 @@
+{
+  "case": "save_failure",
+  "description": "工具失败：M05 在 failure_config 中被列为注入目标，保存返回 E_STORAGE_WRITE，不得产生草稿。",
+  "only": ["M05"],
+  "repeat": false,
+  "expected": {
+    "draft_status": "failed",
+    "draft_id": null,
+    "error_code": "E_STORAGE_WRITE"
+  }
+}

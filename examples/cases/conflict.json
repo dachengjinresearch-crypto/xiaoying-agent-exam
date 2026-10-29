@@ -1,0 +1,13 @@
+{
+  "case": "conflict",
+  "description": "时段冲突：M01 无风险但要求 18:00，该时段已被 M00 占用，19:00 可用；应改期并标记待确认，不得称为已发布。",
+  "only": ["M01"],
+  "repeat": true,
+  "expected": {
+    "review_status": "passed",
+    "draft_status": "draft_saved",
+    "suggested_slot": "2026-11-05T19:00",
+    "pending_confirmation": true,
+    "idempotent_on_repeat": true
+  }
+}

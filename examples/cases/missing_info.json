@@ -1,0 +1,11 @@
+{
+  "case": "missing_info",
+  "description": "信息缺失：M03 缺封面与正文，asset_extra 中也没有补充记录，补查后仍缺，应阻断。",
+  "only": ["M03"],
+  "repeat": false,
+  "expected": {
+    "review_status": "needs_info",
+    "draft_status": "not_attempted",
+    "draft_id": null
+  }
+}

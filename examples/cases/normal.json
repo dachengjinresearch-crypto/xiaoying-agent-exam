@@ -1,0 +1,12 @@
+{
+  "case": "normal",
+  "description": "正常排期：M02 无风险，要求在 2026-11-05 20:00 发布，该时段空闲。",
+  "only": ["M02"],
+  "repeat": false,
+  "expected": {
+    "status": "completed",
+    "review_status": "passed",
+    "draft_status": "draft_saved",
+    "pending_confirmation": false
+  }
+}

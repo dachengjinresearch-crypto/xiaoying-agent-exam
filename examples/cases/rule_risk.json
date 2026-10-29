@@ -1,0 +1,11 @@
+{
+  "case": "rule_risk",
+  "description": "规则风险：M04 含未核实效果数据，命中 R2（block），不得排期。",
+  "only": ["M04"],
+  "repeat": false,
+  "expected": {
+    "review_status": "blocked",
+    "draft_status": "blocked",
+    "risk_rule": "R2"
+  }
+}

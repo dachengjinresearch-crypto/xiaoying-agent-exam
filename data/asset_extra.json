@@ -1,0 +1,9 @@
+{
+  "version": "2026-10-29",
+  "extra": {
+    "M07": {
+      "has_cover": true,
+      "has_body": true
+    }
+  }
+}

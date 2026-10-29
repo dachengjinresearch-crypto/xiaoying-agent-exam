@@ -1,0 +1,8 @@
+# 本项目刻意只依赖标准库，测试用 unittest，clone 后无需 pip install 即可运行：
+#   python -m unittest discover -s tests -t . -v
+#
+# 可选：若你偏好 pytest，也可直接运行 pytest（它会收集 unittest 用例）。
+# pytest>=7.4
+
+# 可选：真模型模式（T11 使用）。离线模式无需安装。
+# openai>=1.30

@@ -1,0 +1,32 @@
+{
+  "version": "2026-10-01",
+  "rules": [
+    {
+      "rule_id": "R1",
+      "desc": "素材四要素（封面 / 正文 / 授权 / 时长）必须齐全",
+      "level": "block",
+      "check": "metadata_completeness"
+    },
+    {
+      "rule_id": "R2",
+      "desc": "不得包含未核实的效果数据（如提升 80%）",
+      "level": "block",
+      "check": "content_flags",
+      "match_flags": ["contains_unverified_effect_claim"]
+    },
+    {
+      "rule_id": "R3",
+      "desc": "同一渠道 30 分钟内不得连发两条",
+      "level": "warn",
+      "check": "channel_interval",
+      "interval_minutes": 30
+    },
+    {
+      "rule_id": "R4",
+      "desc": "发布时间须落在 09:00-22:00",
+      "level": "block",
+      "check": "publish_window",
+      "window": ["09:00", "22:00"]
+    }
+  ]
+}

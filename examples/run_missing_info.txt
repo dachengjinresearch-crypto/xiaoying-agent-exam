@@ -1,0 +1,22 @@
+# 用例：missing_info
+# 说明：信息缺失：M03 缺封面与正文，asset_extra 中也没有补充记录，补查后仍缺，应阻断。
+# 命令：python -m src.cli --case missing_info --offline --trace examples/run_missing_info.jsonl --audit examples/audit.jsonl
+# 退出码：0
+
+[stderr]
+[NOTICE] 显式指定 --offline：使用离线 Mock
+[NOTICE] trace 写入 examples/run_missing_info.jsonl
+[NOTICE] 审计追加到 examples/audit.jsonl
+
+[stdout]
+run_id       : run-missing_info
+case         : missing_info
+model        : offline (degraded=false)
+status       : completed
+budget       : steps 5/80, tools 3/60
+
+asset review      status      draft_id  requested           suggested           confirm
+--------------------------------------------------------------------------------------------
+M03   needs_info  待补资料        -         2026-11-06T10:00    -                   -
+
+summary      : total=1 已保存草稿=0 阻断=0 待补资料=1 保存失败=0 待确认=0

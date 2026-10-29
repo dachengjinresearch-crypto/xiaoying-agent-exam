@@ -1,0 +1,27 @@
+# 用例：conflict
+# 说明：时段冲突：M01 无风险但要求 18:00，该时段已被 M00 占用，19:00 可用；应改期并标记待确认，不得称为已发布。
+# 命令：python -m src.cli --case conflict --offline --trace examples/run_conflict.jsonl --audit examples/audit.jsonl --repeat
+# 退出码：0
+
+[stderr]
+[NOTICE] 显式指定 --offline：使用离线 Mock
+[NOTICE] trace 写入 examples/run_conflict.jsonl
+[NOTICE] 审计追加到 examples/audit.jsonl
+
+[stdout]
+run_id       : run-conflict
+case         : conflict
+model        : offline (degraded=false)
+status       : completed
+budget       : steps 6/80, tools 5/60
+
+asset review      status      draft_id  requested           suggested           confirm
+--------------------------------------------------------------------------------------------
+M01   passed      草稿已保存       D-001     2026-11-05T18:00    2026-11-05T19:00    待确认
+
+  待确认   M01: 2026-11-05T18:00 已被占用，建议调整为 2026-11-05T19:00
+
+summary      : total=1 已保存草稿=1 阻断=0 待补资料=0 保存失败=0 待确认=1
+
+重复提交校验:
+  M01: 第一次=D-001 第二次=D-001 一致（幂等）

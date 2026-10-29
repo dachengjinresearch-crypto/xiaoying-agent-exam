@@ -1,0 +1,22 @@
+# 用例：save_failure
+# 说明：工具失败：M05 在 failure_config 中被列为注入目标，保存返回 E_STORAGE_WRITE，不得产生草稿。
+# 命令：python -m src.cli --case save_failure --offline --trace examples/run_save_failure.jsonl --audit examples/audit.jsonl
+# 退出码：0
+
+[stderr]
+[NOTICE] 显式指定 --offline：使用离线 Mock
+[NOTICE] trace 写入 examples/run_save_failure.jsonl
+[NOTICE] 审计追加到 examples/audit.jsonl
+
+[stdout]
+run_id       : run-save_failure
+case         : save_failure
+model        : offline (degraded=false)
+status       : partial
+budget       : steps 8/80, tools 6/60
+
+asset review      status      draft_id  requested           suggested           confirm
+--------------------------------------------------------------------------------------------
+M05   passed      保存失败        -         2026-11-06T15:00    -                   -
+
+summary      : total=1 已保存草稿=0 阻断=0 待补资料=0 保存失败=1 待确认=0

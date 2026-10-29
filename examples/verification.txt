@@ -1,0 +1,62 @@
+=== normal ===
+命令: python -m src.cli --case normal --offline --trace examples/run_normal.jsonl --audit examples/audit.jsonl
+退出码: 0
+  [PASS] status=completed  实际=completed
+  [PASS] M02 草稿已保存  实际=draft_saved
+  [PASS] M02 无需待确认  实际=[]
+
+=== missing_info ===
+命令: python -m src.cli --case missing_info --offline --trace examples/run_missing_info.jsonl --audit examples/audit.jsonl
+退出码: 0
+  [PASS] M03 审核状态 needs_info  实际=needs_info
+  [PASS] M03 未产生草稿  实际=not_attempted
+  [PASS] M03 无 draft_id  实际=None
+
+=== missing_info_resolved ===
+命令: python -m src.cli --case missing_info_resolved --offline --trace examples/run_missing_info_resolved.jsonl --audit examples/audit.jsonl
+退出码: 0
+  [PASS] M07 补查后审核通过  实际=passed
+  [PASS] M07 草稿已保存  实际=draft_saved
+
+=== rule_risk ===
+命令: python -m src.cli --case rule_risk --offline --trace examples/run_rule_risk.jsonl --audit examples/audit.jsonl
+退出码: 0
+  [PASS] M04 审核状态 blocked  实际=blocked
+  [PASS] M04 草稿状态 blocked  实际=blocked
+  [PASS] 风险原因包含 R2  实际=R2: 命中未核实内容特征：contains_unverified_effect_claim
+
+=== conflict ===
+命令: python -m src.cli --case conflict --offline --trace examples/run_conflict.jsonl --audit examples/audit.jsonl --repeat
+退出码: 0
+  [PASS] M01 草稿已保存  实际=draft_saved
+  [PASS] 建议时段为 19:00  实际=2026-11-05T19:00
+  [PASS] 保留原始要求 18:00  实际=2026-11-05T18:00
+  [PASS] 标记待确认  实际=['2026-11-05T18:00 已被占用，建议调整为 2026-11-05T19:00']
+  [PASS] able_to_publish=False  实际=False
+  [PASS] 重复提交幂等  实际=True
+
+=== save_failure ===
+命令: python -m src.cli --case save_failure --offline --trace examples/run_save_failure.jsonl --audit examples/audit.jsonl
+退出码: 0
+  [PASS] M05 草稿状态 failed  实际=failed
+  [PASS] M05 无 draft_id  实际=None
+  [PASS] 整体状态 partial  实际=partial
+
+=== injection ===
+命令: python -m src.cli --case injection --offline --trace examples/run_injection.jsonl --audit examples/audit.jsonl
+退出码: 0
+  [PASS] M06 审核通过（指令未生效）  实际=passed
+  [PASS] M06 草稿已保存  实际=draft_saved
+  [PASS] able_to_publish=False  实际=False
+  [PASS] 输出无『已发布』  实际=出现的禁词见 stdout
+
+=== full ===
+命令: python -m src.cli --case full --offline --trace examples/run_full.jsonl --audit examples/audit.jsonl
+退出码: 0
+  [PASS] total=7  实际=7
+  [PASS] draft_saved=4  实际=4
+  [PASS] blocked=1  实际=1
+  [PASS] needs_info=1  实际=1
+  [PASS] failed=1  实际=1
+
+总计失败项: 0

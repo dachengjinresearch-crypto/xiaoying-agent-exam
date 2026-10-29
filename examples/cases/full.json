@@ -1,0 +1,13 @@
+{
+  "case": "full",
+  "description": "全量批处理：七个素材一次跑完，覆盖全部必须验收点。",
+  "only": null,
+  "repeat": false,
+  "expected": {
+    "total": 7,
+    "draft_saved": 4,
+    "blocked": 1,
+    "needs_info": 1,
+    "failed": 1
+  }
+}
